@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from 'react'
 import { Link, useParams } from "react-router-dom";
+import axios from 'axios'
 import {
   Card,
   Row,
@@ -10,11 +11,24 @@ import {
   Container,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
+// import products from "../products";
 
 const ProductScreen = () => {
   const { id } = useParams(); // use useParams() to match the params in url
-  const product = products.find((p) => p._id === id);
+  const [product, setProduct] = useState([])
+  
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${id}`)
+
+      setProduct(data)
+    }
+
+    fetchProduct();
+  }, [])
+
+
+  // const product = products.find((p) => p._id === id);
 
   return (
     <div className="product_page_wrapper">
