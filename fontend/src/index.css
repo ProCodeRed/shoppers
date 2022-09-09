@@ -7,3 +7,11 @@
 main{
     min-height: 90vh;
 }
+
+.product__cards a{
+    text-decoration: none;
+}
+
+.product__cards a:hover{
+    text-decoration: underline;
+}
