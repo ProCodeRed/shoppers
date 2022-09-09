@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-main{
+main, .product_page_wrapper{
     min-height: 90vh;
 }
 
@@ -15,3 +15,13 @@ main{
 .product__cards a:hover{
     text-decoration: underline;
 }
+
+h3.card-text{
+    padding: 1rem 0;
+}
+
+.rating span{
+    margin: 0.1rem;
+}
+
+strong{color: #000; font-weight: 700 !important;}
