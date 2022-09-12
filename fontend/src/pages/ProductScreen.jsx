@@ -25,7 +25,7 @@ const ProductScreen = () => {
     }
 
     fetchProduct();
-  }, [])
+  }, [id])
 
 
   // const product = products.find((p) => p._id === id);
