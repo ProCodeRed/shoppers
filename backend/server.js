@@ -1,27 +1,26 @@
- import express from 'express';
- import dotenv  from 'dotenv';
- import products from './data/products.js';
- import connectDB from './config/db.js'
-
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import productRoutes from "./routes/productRoutes.js";
+import {notFound, errorHandler} from './middleware/middleware.js'
 
 dotenv.config();
-const PORT = process.env.PORT || 5000
-const mode = process.env.NODE_ENV
+const PORT = process.env.PORT || 5000;
+const mode = process.env.NODE_ENV;
 const app = express();
 connectDB();
 
- app.get('/', (req, res) => {
-    res.send('API is running')
- })
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
 
- app.get('/api/products', (req, res) => {
-    res.json(products) // convert into json content type
- })
+app.use('/api/products', productRoutes)
 
-//  GET req product by id
- app.get('/api/products/:id', (req, res) => {
-   const product = products.find((p) => p._id === req.params.id)
-   res.json(product)
- })
 
- app.listen(PORT, console.log(`Server running in ${mode} mode on port ${PORT}`))
+// creating 404 error middleware
+app.use(notFound)
+
+// creating error middleware
+app.use(errorHandler)
+
+app.listen(PORT, console.log(`Server running in ${mode} mode on port ${PORT}`));
