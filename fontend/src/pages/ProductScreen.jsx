@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import axios from 'axios'
 import {
   Card,
   Row,
@@ -11,24 +11,20 @@ import {
   Container,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
-// import products from "../products";
+import { listProductDetails } from "../actions/productActions";
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 const ProductScreen = () => {
+
   const { id } = useParams(); // use useParams() to match the params in url
-  const [product, setProduct] = useState([])
-  
+  const dispatch = useDispatch()
+  const productDetails = useSelector(state => state.productDetails)
+  const {loading, error, product} = productDetails
+
   useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${id}`)
-
-      setProduct(data)
-    }
-
-    fetchProduct();
-  }, [id])
-
-
-  // const product = products.find((p) => p._id === id);
+    dispatch(listProductDetails(id))
+  }, [dispatch,id])
 
   return (
     <div className="product_page_wrapper">
@@ -37,7 +33,7 @@ const ProductScreen = () => {
           {" "}
           Go back{" "}
         </Link>
-        <Row>
+        {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : <Row>
           <Col md={6}>
             <Image src={product.image} alt={product.name} fluid />
           </Col>
@@ -89,6 +85,7 @@ const ProductScreen = () => {
             </Card>
           </Col>
         </Row>
+      }
       </Container>
     </div>
   );

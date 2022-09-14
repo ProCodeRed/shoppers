@@ -7,11 +7,11 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 
 const HomeScreen = () => {
+  
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  console.log(productList);
   const { loading, products, error } = productList;
-  console.log(products);
+
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
