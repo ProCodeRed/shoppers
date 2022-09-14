@@ -25,3 +25,16 @@ h3.card-text{
 }
 
 strong{color: #000; font-weight: 700 !important;}
+
+.spinner_wrapper {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spinner_wrapper p{
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 24px;
+}
