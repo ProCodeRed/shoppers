@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 main, .product_page_wrapper{
@@ -18,6 +19,11 @@ main, .product_page_wrapper{
 
 h3.card-text{
     padding: 1rem 0;
+}
+
+h1{
+font-size: 1.4rem; 
+padding: 0.5rem 0;
 }
 
 .rating span{
@@ -37,4 +43,18 @@ strong{color: #000; font-weight: 700 !important;}
     font-size: 24px;
     font-weight: 600;
     margin-top: 24px;
+}
+
+.subtotal_heading {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.text-right{text-align: right;}
+.text-left{text-align: left;}
+
+.price{
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1a1a1a;
 }
