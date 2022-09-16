@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-main, .product_page_wrapper{
+main, .product_page_wrapper, .cart_screen_wrapper{
     min-height: 90vh;
 }
 
