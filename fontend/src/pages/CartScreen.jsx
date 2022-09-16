@@ -14,17 +14,12 @@ const CartScreen = () => {
   const dispatch = useDispatch()
 
   const cart = useSelector(state => state.cart)
-  console.log(cart)
-  // const {cartItem} = cart
-  // console.log(cartItem)
-
+  const {cartItems} = cart
+  console.log(cartItems)
 
   const { id } = useParams(); // use useParams() to match the params in url
   const productId = id
-  console.log(productId)
-
   const qty = location.search ? Number(location.search.split('=')[1]) : 1
-  console.log(qty)
 
   useEffect(() => {
     if(productId){
