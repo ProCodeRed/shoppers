@@ -58,3 +58,10 @@ strong{color: #000; font-weight: 700 !important;}
     line-height: 1.2;
     color: #1a1a1a;
 }
+
+.center_page {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
