@@ -65,3 +65,8 @@ strong{color: #000; font-weight: 700 !important;}
     flex-direction: column;
     justify-content: center;
 }
+
+.dropdown-menu{
+    left: auto;
+    right: 0;
+}
